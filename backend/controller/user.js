@@ -1,4 +1,4 @@
-import { User } from "../module/user.js";
+import { User } from "../models/user.js";
 import { sendToken } from "../utils/features.js";
 import ErrorHandler from "../middlewares/error.js";
 import bcrypt from "bcrypt";
