@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 
 // user defined routers
 import userRouter from './routes/user.js';
+import postRouter from './routes/post.js';
 
 // Configuring dotenv file
 import { config } from "dotenv";
@@ -24,4 +25,4 @@ app.get("/", (req, res) => {
 
 // using user define routes
 app.use("/api/v1/users", userRouter);
-
+app.use("/api/v1/posts", postRouter);

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-import { Comments } from "./Comments";
-import { Invester } from "./investers";
+import { Comments } from "./Comments.js";
+import { Invester } from "./investers.js";
 
 
 const schema = new mongoose.Schema({
