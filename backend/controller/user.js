@@ -60,3 +60,25 @@ export const loginUser = async (req, res, next) => {
     }
 
 }
+
+export const logout = (req, res, next) => {
+
+    try {
+
+        res
+        .status(200)
+        .cookie("token", "", {
+            expires: new Date(Date.now()),
+            sameSite: process.env.NODE_ENV === "Development" ? "lax" : "none",
+            secure: process.env.NODE_ENV === "Development" ? false : true,
+        })
+        .json({
+            success: true,
+            message: "Logout Successfull!"
+        })
+
+    } catch(err) {
+        next(err)
+    }
+
+}

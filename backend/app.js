@@ -18,9 +18,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 
-app.get("/", (req, res) => {
-    res.send("<h1>Home Directory</h1>")
-});
+// app.get("/", (req, res) => {
+//     res.send("<h1>Home Directory</h1>")
+// });
 
 
 // using user define routes

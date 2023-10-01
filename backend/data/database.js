@@ -6,5 +6,5 @@ export const connectDB = () => {
         dbName: "dreamsponsor",
     })
     .then( () => console.log("Database Connected!!")  )
-    .then( (e) => console.log("Error: " + e))
+    .then( (e) => console.log("Database Error: " + e))
 };
