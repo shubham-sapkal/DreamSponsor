@@ -5,7 +5,6 @@ import * as controller from "../controller/post.js";
 import { isAuthenticated } from "../middlewares/auth.js";
 
 
-
 router.post("/create-post", isAuthenticated, controller.createPost);
 
 router.get("/posts", isAuthenticated, controller.getAllPost);
@@ -14,5 +13,7 @@ router.get("/posts", isAuthenticated, controller.getAllPost);
 router.get("/like/:id", isAuthenticated, controller.likePost);
 router.get("/unlike/:id", isAuthenticated, controller.unlikePost);
 
+// Investment
+router.post("/invest/:id", isAuthenticated, controller.addInvester);
 
 export default router;

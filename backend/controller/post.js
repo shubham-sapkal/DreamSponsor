@@ -92,3 +92,38 @@ export const unlikePost = async(req, res, next) => {
     }
 
 }
+
+
+export const addInvester = async(req, res, next) => {
+
+    const { id } = req.params;
+
+    const { user, investedAmt } = req.body;
+
+    try {
+
+        const post = await Post.findById(id );
+
+        if(!post) {
+            return next(new ErrorHandler("Post Not Found!", 404));
+        }
+    
+        post.investers.push({
+            user,
+            invested_amt: investedAmt
+        });
+
+        post.totalInvestment = post.totalInvestment + investedAmt;
+
+        await post.save();
+
+        res.status(200).json({
+            success: true,
+            message: "Investment Added"
+        });
+
+    } catch (err) {
+        next(err)
+    }
+
+}
