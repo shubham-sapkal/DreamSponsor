@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-import { Comments } from "./Comments.js";
+import { Comments } from "./comments.js";
 import { Invester } from "./investers.js";
 
 
