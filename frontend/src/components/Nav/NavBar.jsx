@@ -14,7 +14,7 @@ const NavBar = () => {
         <nav>
             <a href="/" id='logo'> 
                 {logo}
-                <h1>Dream Sponsor</h1>
+                Dream Sponsor
             </a>
 
             <div >
