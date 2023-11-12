@@ -4,6 +4,8 @@ import "./Login.css";
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { server, Context } from '../main';
 
+import { Redirect } from 'react-router-dom';
+
 import axios from 'axios';
 
 import { toast } from 'react-hot-toast';
@@ -28,37 +30,44 @@ const Login = () => {
 
     ctx.setIsLoading(true);
 
-    console.log(email + " " + password);
+    console.log(email + password);
 
     try {
 
-      const { data }= await axios.post( 
-        `${server}/users/login`,
-        {
-          email,
-          password
-        },
-        {
+      const response = await fetch(`${server}/users/login`,{
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json"
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': "*"
           },
-          withCredentials: true,
-        }
-      );
+          
+          body: JSON.stringify({
+              email,
+              password
+          })
+      });
+
+      const data = await response.json();
 
       console.log("Login Successfull!");
-
+      console.log(data);
       toast.success(data.message);
 
       ctx.setIsAuthenticated(true);
-        
+
       ctx.setIsLoading(false);
 
-    }catch(error){
-      toast.error(error);
+    } catch (error) {
+      console.log("Login Error: " + error);
+      // toast.error(error.response.data.message);
       ctx.setIsAuthenticated(false);
       ctx.setIsLoading(false);
     }
+
+  }
+
+  if(ctx.isAuthenticated) {
+    return <Redirect to="/" />
   }
 
   return (

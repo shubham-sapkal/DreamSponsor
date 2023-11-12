@@ -52,11 +52,18 @@ export const loginUser = async (req, res, next) => {
             return next(new ErrorHandler("Invalid Password", 400));
         }
 
+        // res
+        // .status(200)
+        // .json({
+        //     success: true,
+        //     message: "Login sucessfull!"
+        // })
+
         sendToken(user, res, `Welcome Back, ${user.name}`, 200);
 
     } catch(error){
         // res.send("Something Went Wrong")
-        console.log(error);
+        console.log("Error From Backend: " + error);
     }
 
 }
