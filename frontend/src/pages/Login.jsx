@@ -6,8 +6,6 @@ import { server, Context } from '../main';
 
 import { Redirect } from 'react-router-dom';
 
-import axios from 'axios';
-
 import { toast } from 'react-hot-toast';
 
 const Login = () => {
@@ -40,7 +38,6 @@ const Login = () => {
               'Content-Type': 'application/json',
               'Access-Control-Allow-Origin': "*"
           },
-          
           body: JSON.stringify({
               email,
               password
