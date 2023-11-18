@@ -28,7 +28,7 @@ const Login = () => {
 
     ctx.setIsLoading(true);
 
-    console.log(email + password);
+    // console.log(email + password);
 
     try {
 
@@ -46,8 +46,8 @@ const Login = () => {
 
       const data = await response.json();
 
-      console.log("Login Successfull!");
-      console.log(data);
+      // console.log("Login Successfull!");
+      // console.log(data);
       toast.success(data.message);
 
       ctx.setIsAuthenticated(true);
@@ -56,7 +56,7 @@ const Login = () => {
 
     } catch (error) {
       console.log("Login Error: " + error);
-      // toast.error(error.response.data.message);
+      toast.error(error.response.data.message);
       ctx.setIsAuthenticated(false);
       ctx.setIsLoading(false);
     }
@@ -74,7 +74,7 @@ const Login = () => {
             <input type="text" name="email" value={email} placeholder='Email' onChange={emailChangeHandler} />
             <input type="password" name="password" value={password} placeholder='Password' onChange={passwordChangeHandler} />
 
-            <button type="submit">Login</button>
+            <button className='login__btn'  type="submit">Login</button>
 
             <h3>Not Registered? <Link to="/register">Register Here</Link>  </h3>
         </form>

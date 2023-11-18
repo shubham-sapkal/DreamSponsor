@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -34,9 +35,11 @@ function App() {
 
         <Route path="/register">
           <Register />
-        </Route>
+        </Route>  
         
       </Switch>
+    
+      <Toaster/>
     </div>
   );
 }

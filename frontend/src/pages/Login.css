@@ -22,7 +22,7 @@ form {
     border: 1px solid black;
     border-radius: 5px;
   }
-  button {
+  .login__btn {
     background-color: rgb(106, 0, 255);
     border-radius: 5px;
     width: 12rem;
